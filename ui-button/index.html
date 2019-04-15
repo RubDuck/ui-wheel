@@ -11,8 +11,8 @@
 </head>
 <body>
 <div id="app">
-    <g-button :loading='true' >按钮</g-button>
-    <g-button icon='setting' :loading='true' position="right">按钮</g-button>
+    <g-button @click="loading1=!loading" >按钮</g-button>
+    <g-button icon='setting':loading='loading'  position="right" @click="loading=!loading">按钮</g-button>
     <g-button icon='setting' position="left">按钮</g-button>
 
 </div>

@@ -1,5 +1,5 @@
 <template>
-    <button class="g-button" >
+    <button class="g-button" @click="$emit('click')">
         <g-icon v-if="icon&&!loading" :name="icon" :position="position" ></g-icon>
         <g-icon class='loading' v-if="loading" name="loading" :position="position" ></g-icon> 
         <div class="content">
@@ -42,6 +42,7 @@
 
 <script>
     export  default {
+      
         props: {
             loading:{},
             icon: {},
