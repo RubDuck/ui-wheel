@@ -1,6 +1,7 @@
 <template>
-    <button class="g-button">
-        <g-icon v-if="icon" :name="icon" :position="position" ></g-icon>
+    <button class="g-button" >
+        <g-icon v-if="icon&&!loading" :name="icon" :position="position" ></g-icon>
+        <g-icon class='loading' v-if="loading" name="loading" :position="position" ></g-icon> 
         <div class="content">
             <slot></slot>
         </div>
@@ -24,6 +25,15 @@
      vertical-align: middle;
  }
 
+ @keyframes spin{
+     0%{transform:rotate(0deg);}
+     100%{transform:rotate(360deg);}
+
+ }
+ .loading{
+     animation:spin 1s infinite linear;
+ }
+
 
 
 
@@ -33,6 +43,7 @@
 <script>
     export  default {
         props: {
+            loading:{},
             icon: {},
             position: {
                 type: String,
