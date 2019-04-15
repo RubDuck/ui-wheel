@@ -23,7 +23,15 @@
      align-items: center;
      justify-content: center;
      vertical-align: middle;
+    
  }
+ .g-button:hover{
+     border-color:var(--border-hover-color)
+ }
+.g-button:active{
+    background-color:var(--button-active-bg)
+}
+
 
  @keyframes spin{
      0%{transform:rotate(0deg);}
