@@ -1,0 +1,26 @@
+{
+  "name": "ui-wheel",
+  "version": "1.0.0",
+  "description": "这是一个ui-wheel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubDuck/ui-wheel.git"
+  },
+  "keywords": [
+    "ui",
+    "wheel"
+  ],
+  "author": "RubDuck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RubDuck/ui-wheel/issues"
+  },
+  "homepage": "https://github.com/RubDuck/ui-wheel#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
