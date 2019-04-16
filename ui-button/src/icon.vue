@@ -22,5 +22,6 @@
     .icon.right{
         order: 2;
     }
+    
 
 </style>
