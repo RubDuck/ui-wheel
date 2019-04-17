@@ -1,8 +1,8 @@
 {
   "name": "rubduck-wheel-test",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "这是一个ui-wheel",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
      "test": "parcel build test/* --no-minify && karma start --single-run"
