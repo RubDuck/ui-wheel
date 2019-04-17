@@ -1,6 +1,6 @@
 {
   "name": "rubduck-wheel-test",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "这是一个ui-wheel",
   "main": "index.js",
   "scripts": {
