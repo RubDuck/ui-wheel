@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>ui-button</title>
+<style>*{border: 0;margin: 0;box-sizing: border-box}
+ :root{--button-height:32px;--font-size: 14px;--button-bg:white;--button-active-bg:#eee;--border-radius:4px;--color:#333;--border-color:#999;--border-color-hover:#666}
+#app{margin-top: 30px;margin-left: 30px}</style>
+<script src="//at.alicdn.com/t/font_1143660_8uacth1az3v.js"></script>
+<link rel="stylesheet" href="/app.a6a4d504.css"></head>
+<body>
+<div id="app">
+    <g-button @click="loading=!loading">按钮</g-button>
+    <g-button icon="setting" :loading="loading" position="right" @click="loading=!loading">按钮</g-button>
+    <g-button icon="setting" position="left">按钮</g-button>
+    <g-button-group class="g-button-group">
+    <g-button icon="left" position="left">上一页</g-button>
+    <g-button>更多</g-button>        
+    <g-button icon="right" position="right">下一页</g-button>
+    </g-button-group>
+    <div id="test"></div>
+
+</div>
+
+<script src="/vue.min.8c126fc1.js"> </script>
+<script src="/app.a6a4d504.js"></script>
+
+
+</body>
+
+</html>
