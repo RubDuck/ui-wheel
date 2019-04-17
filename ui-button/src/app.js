@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import button from './button.vue'
 import  icon from  './icon.vue'
-import gbutton from './g-button.vue'
+import gbutton from './button-group.vue'
 import { builtinModules } from 'module';
 Vue.component('g-button',button)
 Vue.component('g-icon',icon)
@@ -10,6 +10,7 @@ Vue.component('g-button-group',gbutton)
 new  Vue({
     el:'#app',
     data:{
+    
         loading:true
     }
 })
@@ -93,7 +94,6 @@ vm.$destroy()
     
     vm.$mount()
     let spy=chai.spy(function(){})
-
     vm.$on('click',spy)
     let Butto=vm.$el
     Butto.click()
