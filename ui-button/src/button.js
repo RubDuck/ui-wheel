@@ -17,6 +17,8 @@ new  Vue({
 //单元测试1
 
 import chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 const expect= chai.expect
 {
 const Constructor=Vue.extend(button)
@@ -74,5 +76,27 @@ vm.$destroy()
     expect(order).to.eq('-1')  
     vm.$el.remove()
     vm.$destroy()
+}
+
+
+
+//单元测试4
+
+{
+    
+    const Constructor=Vue.extend(button)
+    const vm =new Constructor({
+        propsData:{
+            icon:'setting',
+        }
+    })
+    
+    vm.$mount()
+    let spy=chai.spy(function(){})
+
+    vm.$on('click',spy)
+    let Butto=vm.$el
+    Butto.click()
+    expect(spy).to.have.been.called()
 }
 
