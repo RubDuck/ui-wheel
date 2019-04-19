@@ -7,7 +7,6 @@
 </template>
  <template v-if='ok'>
     <g-icon  name="ok" class="icon-ok" ></g-icon>
-
 </template>
 
 </div>
@@ -22,6 +21,9 @@
 import Icon from './icon.vue'
 
 export default{
+    components:{
+            'g-icon':Icon
+        },
     props:{
         value: {
         type: String
