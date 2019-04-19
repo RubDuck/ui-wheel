@@ -43,3 +43,22 @@
 .group .g-button:hover{ border-color:var(--border-hover-color);z-index:1}
 .group .g-button:first-child{border-radius:4px 0 0 4px}
 .group .g-button:last-child{border-radius: 0 4px 4px 0}
+.wrap[data-v-35e430]{display:inline-block;margin-right:20px}
+input[data-v-35e430]{
+    margin-top:10px;
+    padding: 0 1em;
+    height:32px;
+    width:128px;
+    color:#666666; 
+    font-size: var(--font-size);
+    border-radius: var(--border-radius);
+    background: #FFFFFF;
+    border: 1px solid rgba(102,102,102,1);
+}
+input[data-v-35e430]:hover{
+     border-color:var(--border-hover-color)
+}
+input[data-v-35e430]:focus {box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5);outline: none;}
+span[data-v-35e430]{
+    font-size: 12px;
+}

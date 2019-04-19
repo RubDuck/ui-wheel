@@ -2,10 +2,12 @@ import Vue from 'vue'
 import button from './button.vue'
 import  icon from  './icon.vue'
 import gbutton from './button-group.vue'
+import input from './input.vue'
 import { builtinModules } from 'module';
 Vue.component('g-button',button)
 Vue.component('g-icon',icon)
 Vue.component('g-button-group',gbutton)
+Vue.component('g-input',input)
 
 new  Vue({
     el:'#app',
