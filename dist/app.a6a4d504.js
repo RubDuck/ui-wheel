@@ -12883,6 +12883,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 //
 //
 //
@@ -12909,6 +12918,38 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var validator = function validator(value) {
+  var keys = Object.keys(value);
+  var vaild = true;
+  keys.forEach(function (key) {
+    if (!['span', 'offset'].includes(key)) {
+      vaild = false;
+    }
+  });
+  return vaild;
+};
+
 var _default = {
   data: function data() {
     return {
@@ -12921,6 +12962,62 @@ var _default = {
     },
     offset: {
       type: [Number, String]
+    },
+    ipad: {
+      type: Object,
+      validator: validator
+    },
+    narrowpc: {
+      type: Object,
+      validator: validator
+    },
+    pc: {
+      type: Object,
+      validator: validator
+    },
+    widepc: {
+      type: Object,
+      validator: validator
+    }
+  },
+  computed: {
+    colStyle: function colStyle() {
+      var gutter = this.gutter;
+      return {
+        paddingLeft: gutter / 2 + 'px',
+        paddingRight: gutter / 2 + 'px'
+      };
+    },
+    colClass: function colClass() {
+      var span = this.span,
+          offset = this.offset,
+          ipad = this.ipad,
+          narrowpc = this.narrowpc,
+          pc = this.pc,
+          widepc = this.widepc;
+      var createclasses = this.createClasses;
+      return ["col-".concat(this.span), this.offset && "offset-".concat(this.offset)].concat(_toConsumableArray(createclasses(ipad, 'ipad')), _toConsumableArray(createclasses(narrowpc, 'narrowpc')), _toConsumableArray(createclasses(pc, 'pc')), _toConsumableArray(createclasses(widepc, 'widepc')));
+    }
+  },
+  methods: {
+    createClasses: function createClasses(obj) {
+      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+      if (!obj) {
+        return [];
+      }
+
+      var array = [];
+
+      if (obj.span) {
+        array.push("col-".concat(str, "-").concat(obj.span));
+      }
+
+      if (obj.offset) {
+        array.push("offset-".concat(str, "-").concat(obj.offset));
+      }
+
+      return array;
     }
   }
 };
@@ -12939,14 +13036,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "col",
-      class: ["col-" + _vm.span, _vm.offset && "offset-" + _vm.offset],
-      style: {
-        paddingLeft: _vm.gutter / 2 + "px",
-        paddingRight: _vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
     [_vm._t("default")],
     2
   )
@@ -13006,15 +13096,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   props: {
     gutter: {
@@ -13027,6 +13108,15 @@ var _default = {
     this.$children.forEach(function (vm) {
       vm.gutter = _this.gutter;
     });
+  },
+  computed: {
+    colStyle: function colStyle() {
+      var gutter = this.gutter;
+      return {
+        marginLeft: -gutter / 2 + 'px',
+        marginRight: -gutter / 2 + 'px'
+      };
+    }
   }
 };
 exports.default = _default;
@@ -13044,13 +13134,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "row",
-      style: {
-        marginLeft: -_vm.gutter / 2 + "px",
-        marginRight: -_vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "row", style: _vm.colStyle },
     [_vm._t("default")],
     2
   )
@@ -13062,7 +13146,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-acc632",
             functional: undefined
           };
         })());
@@ -24303,7 +24387,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52291" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63163" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

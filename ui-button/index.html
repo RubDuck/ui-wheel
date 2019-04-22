@@ -27,13 +27,13 @@
     <g-input value='王五' ok=true></g-input>
     <g-input value='赵六' error='你错了'></g-input>
     <g-row gutter='20'>
-        <g-col span='14' >1</g-col>
-        <g-col span='14' >2</g-col>
+        <g-col span='12' :ipad={span:2} :pc={span:6}>1</g-col>
+        <g-col span='12' :ipad={span:22} :pc={span:18}>2</g-col>
     </g-row>
     <g-row gutter='20'>
-        <g-col span='10' offset='2'>3</g-col>
-        <g-col span='8' offset='2'>4</g-col>
-        <g-col span='2' >5</g-col>
+        <g-col span='10' offset='2' :ipad={span:7,offset:1}>3</g-col>
+        <g-col span='8' offset='2' :ipad={span:7,offset:1}>4</g-col>
+        <g-col span='2' :ipad={span:7,offset:1}>5</g-col>
     </g-row>
     <g-row gutter='20'>
         <g-col span='7' offset='1'>6</g-col>

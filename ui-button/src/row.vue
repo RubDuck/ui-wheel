@@ -1,24 +1,15 @@
 <template>
-   <div class="row" :style="{marginLeft:-gutter/2+'px',marginRight:-gutter/2+'px'}">
+   <div class="row" :style="colStyle">
     <slot></slot>
   </div>
 
 </template>
 
 
-<div class="row">
-    <slot></slot>
-  </div><style>
 
-.row{
-    display:flex;
-    background: #E8E8E8;
-    margin-top:10px;
- 
-}
+<style scoped>
 
-
-
+.row{display:flex;background: #E8E8E8;margin-top:10px;}
 
 </style>
 
@@ -33,6 +24,12 @@ export default{
         this.$children.forEach(vm=>{
             vm.gutter=this.gutter
         })
+    },
+    computed:{
+        colStyle(){
+            let gutter=this.gutter
+            return {marginLeft:-gutter/2+'px',marginRight:-gutter/2+'px'}
+        }
     }
 }
 
