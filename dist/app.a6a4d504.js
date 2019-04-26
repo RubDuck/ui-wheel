@@ -13178,6 +13178,12 @@ render._withStripped = true
       }
     })();
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.common.js"}],"src/toast.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 //
 //
 //
@@ -13186,6 +13192,53 @@ render._withStripped = true
 //
 //
 //
+//
+//
+//
+//
+var _default = {
+  props: {
+    closeButton: {
+      type: Object,
+      default: function _default() {
+        return {
+          text: '关闭'
+        };
+      }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: top,
+      validator: function validator(value) {
+        return ['top', 'bottom', 'middle'].indexOf(value) >= 0;
+      }
+    }
+  },
+  methods: {
+    onClickClose: function onClickClose() {
+      this.close();
+    },
+    execAutoClose: function execAutoClose() {
+      var _this = this;
+
+      setTimeout(function () {
+        _this.close();
+      }, 10000);
+    },
+    close: function close() {
+      this.$el.remove();
+      this.$destroy();
+    }
+  },
+  mounted: function mounted() {
+    this.execAutoClose;
+  }
+};
+exports.default = _default;
         var $432e0c = exports.default || module.exports;
       
       if (typeof $432e0c === 'function') {
@@ -13198,7 +13251,27 @@ render._withStripped = true
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "toast" }, [_vm._t("default")], 2)
+  return _c("div", { staticClass: "wrap", class: _vm.position }, [
+    _c(
+      "div",
+      { staticClass: "wrapToast" },
+      [
+        !_vm.enableHtml ? _vm._t("default") : _vm._e(),
+        _vm._v(" "),
+        _vm.enableHtml
+          ? _c("div", {
+              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) },
+              on: { click: _vm.onClickClose }
+            })
+          : _vm._e()
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "wrapClose", on: { click: _vm.onClickClose } }, [
+      _vm._v(_vm._s(_vm.closeButton.text))
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13247,11 +13320,24 @@ var _toast = _interopRequireDefault(require("./toast.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var toast;
 var _default = {
   install: function install(Vue, options) {
-    Vue.prototype.$toast = function (messages) {
+    Vue.prototype.$toast = function (messages, toastOptions) {
       var constructor = Vue.extend(_toast.default);
-      var toast = new constructor();
+
+      if (toast) {
+        toast.close();
+      }
+
+      console.log(toastOptions);
+      toast = new constructor({
+        propsData: {
+          closeButton: toastOptions.closeButton,
+          enableHtml: toastOptions.enableHtml,
+          position: toastOptions.position
+        }
+      });
       toast.$slots.default = [messages];
       toast.$mount();
       document.body.appendChild(toast.$el);
@@ -24368,7 +24454,13 @@ new _vue.default({
   },
   methods: {
     showtoast: function showtoast() {
-      this.$toast('更新成功');
+      this.$toast('更新成功', {
+        enableHtml: false,
+        position: 'top',
+        closeButton: {
+          text: '关闭'
+        }
+      });
     }
   }
 }); //单元测试1
@@ -24485,7 +24577,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63433" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52543" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -23,7 +23,14 @@ new  Vue({
     },
     methods:{
         showtoast(){
-            this.$toast('更新成功')
+            this.$toast('更新成功',{
+                enableHtml: false,
+                position:'top',
+                closeButton: {
+                text: '关闭'
+                }
+            }
+                  )
         }
     }
 })
