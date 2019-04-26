@@ -5,19 +5,26 @@ import gbutton from './button-group.vue'
 import input from './input.vue'
 import col from './col.vue'
 import row from './row.vue'
+import toast from './toast.vue'
 import { builtinModules } from 'module';
+import MyPlugin from './plugin.js'
 Vue.component('g-button',button)
 Vue.component('g-icon',icon)
 Vue.component('g-button-group',gbutton)
 Vue.component('g-input',input)
 Vue.component('g-row',row)
 Vue.component('g-col',col)
-
+Vue.component('g-toast',toast)
+Vue.use(MyPlugin)
 new  Vue({
     el:'#app',
     data:{
-    
         loading:true
+    },
+    methods:{
+        showtoast(){
+            this.$toast('更新成功')
+        }
     }
 })
 

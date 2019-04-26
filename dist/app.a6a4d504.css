@@ -508,3 +508,9 @@ span[data-v-35e430]{
 }
 }
 .row[data-v-acc632]{display:flex;background: #E8E8E8;margin-top:10px;}
+.toast[data-v-432e0c] {
+  height: 40px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  display: flex;
+}
