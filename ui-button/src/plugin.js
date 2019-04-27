@@ -7,12 +7,13 @@ export default{
             if(toast){
                 toast.close()
             }
-            console.log(toastOptions)
+    
             toast =new constructor({
                 propsData: {
                     closeButton:toastOptions.closeButton,
                     enableHtml:toastOptions.enableHtml,
-                    position:toastOptions.position
+                    position:toastOptions.position,
+                    autoClose:toastOptions.autoClose
                 }
                 
             })

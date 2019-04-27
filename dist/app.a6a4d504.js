@@ -13196,8 +13196,14 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   props: {
+    autoClose: {
+      type: Number,
+      default: 5
+    },
     closeButton: {
       type: Object,
       default: function _default() {
@@ -13227,7 +13233,7 @@ var _default = {
 
       setTimeout(function () {
         _this.close();
-      }, 10000);
+      }, this.autoClose * 1000);
     },
     close: function close() {
       this.$el.remove();
@@ -13252,24 +13258,26 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "wrap", class: _vm.position }, [
-    _c(
-      "div",
-      { staticClass: "wrapToast" },
-      [
-        !_vm.enableHtml ? _vm._t("default") : _vm._e(),
-        _vm._v(" "),
-        _vm.enableHtml
-          ? _c("div", {
-              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) },
-              on: { click: _vm.onClickClose }
-            })
-          : _vm._e()
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "wrapClose", on: { click: _vm.onClickClose } }, [
-      _vm._v(_vm._s(_vm.closeButton.text))
+    _c("div", { staticClass: "wrap-main" }, [
+      _c(
+        "div",
+        { staticClass: "wrapToast" },
+        [
+          !_vm.enableHtml ? _vm._t("default") : _vm._e(),
+          _vm._v(" "),
+          _vm.enableHtml
+            ? _c("div", {
+                domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) },
+                on: { click: _vm.onClickClose }
+              })
+            : _vm._e()
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "wrapClose", on: { click: _vm.onClickClose } }, [
+        _vm._v(_vm._s(_vm.closeButton.text))
+      ])
     ])
   ])
 }
@@ -13330,12 +13338,12 @@ var _default = {
         toast.close();
       }
 
-      console.log(toastOptions);
       toast = new constructor({
         propsData: {
           closeButton: toastOptions.closeButton,
           enableHtml: toastOptions.enableHtml,
-          position: toastOptions.position
+          position: toastOptions.position,
+          autoClose: toastOptions.autoClose
         }
       });
       toast.$slots.default = [messages];
@@ -24456,7 +24464,8 @@ new _vue.default({
     showtoast: function showtoast() {
       this.$toast('更新成功', {
         enableHtml: false,
-        position: 'top',
+        position: 'middle',
+        autoClose: 3,
         closeButton: {
           text: '关闭'
         }
@@ -24577,7 +24586,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52543" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50642" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
