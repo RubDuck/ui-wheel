@@ -26,7 +26,7 @@ new  Vue({
             this.$toast('更新成功',{
                 enableHtml: false,
                 position:'middle',
-                autoClose:3,
+                autoClose:4,
                 closeButton: {
                 text: '关闭'
                 }

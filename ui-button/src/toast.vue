@@ -17,8 +17,15 @@ export default{
   props:{
 
     autoClose:{
+      type:[Boolean,Number],
+      default:5,
+      validator(value){
+        return typeof value==='boolean' ||typeof value==='number';
+      }
+    },
+    delay:{
       type:Number,
-      default:5
+      default:1
     },
      closeButton: {
       type: Object,
@@ -45,10 +52,16 @@ export default{
       this.close()
     },
     execAutoClose(){
-      setTimeout(()=>{
+
+      if(this.autoClose){
+        setTimeout(()=>{
         this.close()
 
-      },this.autoClose *1000)
+      },this.autoClose * 1000)
+
+
+      }
+
     },
     close(){
       this.$el.remove()
@@ -56,7 +69,7 @@ export default{
     }
   },
   mounted(){
-   this.execAutoClose
+   this.execAutoClose()
   }
 
 
@@ -101,6 +114,7 @@ export default{
   }
   &-main{
     display:flex;
+    width:100%;
   }
   
 

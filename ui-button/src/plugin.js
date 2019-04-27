@@ -13,7 +13,8 @@ export default{
                     closeButton:toastOptions.closeButton,
                     enableHtml:toastOptions.enableHtml,
                     position:toastOptions.position,
-                    autoClose:toastOptions.autoClose
+                    autoClose:toastOptions.autoClose,
+          
                 }
                 
             })

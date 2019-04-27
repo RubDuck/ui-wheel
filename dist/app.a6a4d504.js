@@ -13201,8 +13201,15 @@ exports.default = void 0;
 var _default = {
   props: {
     autoClose: {
+      type: [Boolean, Number],
+      default: 5,
+      validator: function validator(value) {
+        return typeof value === 'boolean' || typeof value === 'number';
+      }
+    },
+    delay: {
       type: Number,
-      default: 5
+      default: 1
     },
     closeButton: {
       type: Object,
@@ -13231,9 +13238,11 @@ var _default = {
     execAutoClose: function execAutoClose() {
       var _this = this;
 
-      setTimeout(function () {
-        _this.close();
-      }, this.autoClose * 1000);
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this.close();
+        }, this.autoClose * 1000);
+      }
     },
     close: function close() {
       this.$el.remove();
@@ -13241,7 +13250,7 @@ var _default = {
     }
   },
   mounted: function mounted() {
-    this.execAutoClose;
+    this.execAutoClose();
   }
 };
 exports.default = _default;
@@ -24465,7 +24474,7 @@ new _vue.default({
       this.$toast('更新成功', {
         enableHtml: false,
         position: 'middle',
-        autoClose: 3,
+        autoClose: 4,
         closeButton: {
           text: '关闭'
         }
